@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
 
   def inventory
     product = Product.find(params[:id])
-    render plain: product.inventory > 0 ? true : false
+    render plain: product.inventory
   end
 
   def description
@@ -24,10 +24,10 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-     render json: @product, status: 200
+    render json: @product, status: 200
     # respond_to do |format|
     #   format.html { render :show }
-    #   format.json {  }
+    #   format.json {render json: @product, status: 200  }
     # end
   end
 
